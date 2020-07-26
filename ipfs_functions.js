@@ -1,10 +1,16 @@
 const ipfsClient = require('ipfs-http-client');
 const ipfs = ipfsClient('http://localhost:5001'); // (the default in Node.js)
 const BufferList = require('bl/BufferList')
+//const single-page = require('./single-page_app_gui-functions.js')
 var cid = "future cid"
 
+var fileSelector = document.createElement('input');
+fileSelector.setAttribute("id", "fileItem");
+fileSelector.setAttribute('type', 'file');
+fileSelector.setAttribute('multiple', 'multiple');
+
 // ipfs file adding
-module.export = async function ipfs_add()
+async function ipfs_add()
 {
   try
   {
@@ -29,7 +35,7 @@ module.export = async function ipfs_add()
   } catch (err) {console.error(err);}
 }
 
-module.export = async function ipfs_add_file(str){
+async function ipfs_add_file(str){
   for await (const res of ipfs.add(str)) {
     console.log(String(res.cid))
     cid = String(res.cid)
@@ -37,7 +43,7 @@ module.export = async function ipfs_add_file(str){
   }
 }
 
-module.export = async function ipfs_get(ipfs_cid){
+async function ipfs_get(ipfs_cid){
   for await (const file of ipfs.get(ipfs_cid)) {
     //console.log(file.path)
     if (!file.content) continue;

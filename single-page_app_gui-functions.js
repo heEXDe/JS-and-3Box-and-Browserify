@@ -1,4 +1,4 @@
-var ipfs_functions = require('./ipfs_functions.js');
+//var ipfs_funct = require('./ipfs_functions.js');
 
 // get two first buttons
 var btn1 = document.getElementById("btn_1");
@@ -34,9 +34,13 @@ fileSelector.setAttribute('type', 'file');
 fileSelector.setAttribute('multiple', 'multiple');
 
 // set onclick events for buttons
+
+/*
 btn_ch_f.onclick = function(){choose_file()};
-btn_add_to_ipfs.onclick = function(){ipfs_add()};
-btn_get_from_ipfs.onclick = function(){ipfs_get(cid)};
+btn_add_to_ipfs.onclick = function(){ipfs_funct.ipfs_add()};
+btn_get_from_ipfs.onclick = function(){ipfs_funct.ipfs_get(cid)};
+*/
+
 btn_h1.onclick = function(){to_home_from_add()};
 btn_h2.onclick = function(){to_home_from_download()};
 
